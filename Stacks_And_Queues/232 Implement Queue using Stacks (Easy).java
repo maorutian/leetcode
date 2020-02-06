@@ -8,26 +8,14 @@ empty() -- Return whether the queue is empty.
 */
 
 /*
-思路:
+How to solve:
 Keep 2 stacks, let's call them inbox and outbox.
 inbox is only for enqueue, outbox is only for dequeue
 if enqueue: push onto inbox
 if dequeue:
 check if outbox is empty - is empty: transfer array from inbox to outbox, then pop
                          - is not empty: pop element in outbox
-难点:
-0.怎么实现stack?用new Stack<>()
-import java.util.Stack;
-Stack<Integer> inbox = new Stack<>(); 
-1.如何翻转数组:
-while (!inbox.isEmpty()) {outbox.push(inbox.pop());}
-2.如何得到inbox Stack最底部(即最先进去)的数据
-1)inbox.firstElement();
-2)全翻转到outbox, 再outbox.peek()
-优化:
-1.采用inbo.firstElement()-37.3mb
-2.采用全翻转到outbox, 再outbox.peek() - 37mb
-3.由于peek()和pop()都会判断再outbox isempty, 代码复用 36.9mb
+
 API:
 Stack<Integer> inbox = new Stack<>(); 
 inbox.push();
@@ -88,6 +76,7 @@ class MyQueue {
     }
 }
 
+//reuse inbox Transfer to Outbox
 class MyQueue2 {
 
     private Stack<Integer> inbox;
