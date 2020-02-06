@@ -6,15 +6,13 @@ pop() -- Removes the element on top of the stack.
 top() -- Get the top element.
 empty() -- Return whether the stack is empty.
 
-思路:
+How to solve:
 create a queue
 after x added in the last of the queue, remove the first element and add it to end of the queue, and then remove the second
-element and add it to the end of the queque, till the x becomes the first element in the queue(queue.size() - 1 times)
+element and add it to the end of the queque, till the x becomes the first element in the queue(queue.size() - 1 times).
+The queue is a stack now.
 
-难点:
-0.怎么实现Queue?
-
-所用API:
+API:
 Queue<Integer> queue = new LinkedList<>();
 queue.add(x);
 queue.poll();
